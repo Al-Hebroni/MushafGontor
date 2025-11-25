@@ -1,8 +1,10 @@
 package com.mushaf.gontor.data.model
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
-// Disesuaikan dengan API myquran.com
+@Parcelize
 data class Ayat(
     @SerializedName("nomorAyat")
     val nomorAyat: Int,
@@ -12,5 +14,5 @@ data class Ayat(
 
     @SerializedName("teksIndonesia")
     val terjemahan: String
-)
+) : Parcelable
 

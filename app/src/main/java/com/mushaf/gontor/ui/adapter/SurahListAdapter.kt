@@ -29,7 +29,7 @@ class SurahListAdapter(private val listSurah: List<Surah>) :
             // Memastikan data dari model myquran.com ditampilkan dengan benar
             tvSurahNumber.text = surah.nomor.toString() // Mengubah Int menjadi String
             tvSurahNameLatin.text = surah.namaLatin
-            tvSurahInfo.text = "${surah.tempatTurun.replaceFirstChar { it.uppercase() }} | ${surah.jumlahAyat} Ayat"
+            tvSurahInfo.text = "${surah.tempatTurun.replaceFirstChar { it.uppercase() }} | 0 Ayat"
             tvSurahNameArabic.text = surah.nama
         }
 

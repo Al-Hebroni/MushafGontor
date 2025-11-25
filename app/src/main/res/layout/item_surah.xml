@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="?attr/selectableItemBackground">
+
+    <!-- Latar belakang untuk nomor surah -->
+    <TextView
+        android:id="@+id/tv_surah_number_background"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:background="@drawable/bg_number_surah"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- Nomor Surah (di tengah bingkai) -->
+    <TextView
+        android:id="@+id/tv_surah_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@id/tv_surah_number_background"
+        app:layout_constraintEnd_toEndOf="@id/tv_surah_number_background"
+        app:layout_constraintTop_toTopOf="@id/tv_surah_number_background"
+        app:layout_constraintBottom_toBottomOf="@id/tv_surah_number_background"
+        tools:text="1" />
+
+    <!-- Nama Surah (Latin) -->
+    <TextView
+        android:id="@+id/tv_surah_name_latin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/tv_surah_number_background"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tv_surah_info"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Al-Fatihah" />
+
+    <!-- Informasi Surah (Tempat & Jumlah Ayat) -->
+    <TextView
+        android:id="@+id/tv_surah_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="?attr/colorPrimary"
+        app:layout_constraintStart_toStartOf="@id/tv_surah_name_latin"
+        app:layout_constraintTop_toBottomOf="@id/tv_surah_name_latin"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="Mekah | 7 Ayat" />
+
+    <!-- Nama Surah (Arab) -->
+    <TextView
+        android:id="@+id/tv_surah_name_arabic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="?attr/colorPrimary"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        tools:text="الفاتحة" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

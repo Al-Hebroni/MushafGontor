@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    tools:context=".ui.MainActivity">
+
+    <!-- Header Biru di Bagian Atas -->
+    <View
+        android:id="@+id/header_background"
+        android:layout_width="0dp"
+        android:layout_height="300dp"
+        android:background="?attr/colorPrimary"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Kotak Pencarian -->
+    <EditText
+        android:id="@+id/et_search"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:hint="Cari kata Indonesia atau Arab"
+        android:textColorHint="#BDBDBD"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_search_input"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:drawableEnd="@drawable/ic_search"
+        app:drawableTint="@color/white"
+        android:layout_marginTop="24dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:autofillHints=""
+        android:inputType="text" />
+
+    <!-- Placeholder untuk Logo Kaligrafi Anda -->
+    <ImageView
+        android:id="@+id/logo_placeholder"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        app:srcCompat="@drawable/ic_logo_placeholder"
+        app:tint="@color/white"
+        app:layout_constraintTop_toBottomOf="@id/et_search"
+        app:layout_constraintBottom_toTopOf="@id/card_jadwal_sholat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="Logo Aplikasi" />
+
+    <!-- Tampilan Tanggal -->
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Rabu, 15 Oktober 2025 M\n22 Rabi'ul Akhir 1447 H"
+        android:textColor="@color/white"
+        android:textAlignment="viewEnd"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="@id/header_background"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Kartu Jadwal Sholat -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_jadwal_sholat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toBottomOf="@id/header_background"
+        app:layout_constraintBottom_toBottomOf="@id/header_background"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingTop="12dp"
+            android:paddingBottom="12dp"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:weightSum="6">
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Subuh"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_subuh_time" tools:text="04:30"/></LinearLayout>
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Fajar"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_fajar_time" tools:text="05:50"/></LinearLayout>
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Dzuhur"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_dzuhur_time" tools:text="11:45"/></LinearLayout>
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Ashar"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_ashar_time" tools:text="15:00"/></LinearLayout>
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Magrib"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_magrib_time" tools:text="17:55"/></LinearLayout>
+            <LinearLayout style="@style/PrayerTimeItem"><TextView style="@style/PrayerTimeTitle" android:text="Isya'"/><TextView style="@style/PrayerTimeValue" android:id="@+id/tv_isya_time" tools:text="19:05"/></LinearLayout>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+    <!-- Grid Layout untuk Menu (LEBIH RESPONSIF) -->
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:columnCount="4"
+        android:rowCount="3"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintTop_toBottomOf="@id/card_jadwal_sholat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout android:id="@+id/menu_baca_mushaf" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_quran_mushaf" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Baca Al-Qur'an Mushaf"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_baca_per_ayat" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_quran_per_ayat" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Baca Al-Qur'an per-Ayat"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_bookmark" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_bookmark" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Bookmark"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_arah_kiblat" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_kiblat" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Arah Kiblat"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_murottal" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_murottal" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Murottal per Ayat"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_download_audio" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_download_audio" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Download Audio per-Surah"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_tafsir" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_tafsir" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Tafsir Al-Qur'an"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_belajar_baca" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_belajar_baca" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Belajar Baca Al-Qur'an"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_kalender" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_kalender_hijriah" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Kalender Hijriah"/>
+        </LinearLayout>
+
+        <LinearLayout android:id="@+id/menu_pengaturan" style="@style/HomeMenuItem">
+            <androidx.cardview.widget.CardView style="@style/HomeMenuIconContainer">
+                <ImageView style="@style/HomeMenuIcon" app:srcCompat="@drawable/ic_settings" />
+            </androidx.cardview.widget.CardView>
+            <TextView style="@style/HomeMenuText" android:text="Pengaturan"/>
+        </LinearLayout>
+
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

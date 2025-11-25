@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.SurahDetailActivity">
+
+    <!-- Toolbar kustom dengan tombol kembali -->
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.MushafGontor.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_detail"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.MushafGontor.PopupOverlay"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:titleTextColor="@color/white"
+            tools:title="Nama Surah" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <!-- FrameLayout untuk menampung RecyclerView dan ProgressBar -->
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- RecyclerView untuk daftar ayat -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_ayat_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            tools:listitem="@layout/item_ayat"
+            tools:visibility="visible" />
+
+        <!-- Indikator Loading DENGAN ID YANG BENAR -->
+        <ProgressBar
+            android:id="@+id/progress_bar_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="visible"/>
+
+    </FrameLayout>
+
+</LinearLayout>
+
